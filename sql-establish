@@ -1,0 +1,17 @@
+import mysql.connector
+
+mydb = mysql.connector.connect(host='localhost',user='root',passwd='root123')
+mycursor = mydb.cursor()
+
+mycursor.execute("Create database vickydbw")
+
+print(mydb)
+if(mydb):
+    print("connected sql database")
+else:
+    print("not conected")
+
+mycursor.execute("Show databases")
+
+for db in mycursor:
+    print(db)
