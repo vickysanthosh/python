@@ -11,12 +11,12 @@ h=window.winfo_screenheight();
 window.geometry("%dx%d+0+0"%(w,h))
 
 def insertdata():
-    mycon=mysql.connector.connect(host="localhost",user="root",password="root",database="student")
+    mycon=mysql.connector.connect(host="localhost",user="root",password="root",database="emp")
     mycur=mycon.cursor()
     r=int(t1.get() )
     n=(t2.get() )
     m=int(t3.get () )
-    mycur.execute("insert into details values(%d,'%s',%d)"(r,n,m) )
+    mycur.execute("insert into login values(%d,'%s',%d)"%(r,n,m) )
     mycon.commit()
     messagebox.showinfo("Insert","Data successfully inserted:%d%s%d"%(r,n,m))
 
@@ -44,4 +44,4 @@ t3.place(x="200",y="300")
 
 b=Button(window,text="Insert",command=insertdata)
 b.place(x="200",y="400")
-   
+
